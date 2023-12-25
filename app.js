@@ -4,8 +4,8 @@ var express = require('express')
   , cors = require('cors')
   , server = http.createServer(app)
   , Iserver = require('socket.io')
-  //, io = Iserver(server,{cors:{origin:'*'}, origins:'*',
-  , io = Iserver(server,{
+  , io = Iserver(server,{cors:{origin:["https://itch.io/","http://localhost"]}, origins:origin:["https://itch.io","http://localhost"],
+  //, io = Iserver(server,{
   handlePreflightRequest: (req, res) => {
         const headers = {
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
