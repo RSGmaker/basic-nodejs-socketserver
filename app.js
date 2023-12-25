@@ -4,7 +4,11 @@ var express = require('express')
   , cors = require('cors')
   , server = http.createServer(app)
   , Iserver = require('socket.io')
-  , io = Iserver(server,{cors:{origin:["https://itch.io/","http://localhost"]}, origins:["https://itch.io","http://localhost"],
+  , io = Iserver(server,{
+	  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
   //, io = Iserver(server,{
   handlePreflightRequest: (req, res) => {
         const headers = {
