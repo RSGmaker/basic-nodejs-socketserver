@@ -21,8 +21,6 @@ app.use(cors())
 const PORT = process.env.PORT || 3000;
 server.listen(PORT);
 
-io.set('origins', '*:*');
-
 // routing
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
