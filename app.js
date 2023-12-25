@@ -9,7 +9,7 @@ var express = require('express')
         const headers = {
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
             "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
-            "Access-Control-Allow-Credentials": true
+            "Access-Control-Allow-Credentials": false
         };
         res.writeHead(200, headers);
         res.end();
