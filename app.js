@@ -4,19 +4,20 @@ var express = require('express')
   , cors = require('cors')
   , server = http.createServer(app)
   , Iserver = require('socket.io')
-  , io = Iserver(server,{cors:{origin:'*'}, origins:'*',
+  //, io = Iserver(server,{cors:{origin:'*'}, origins:'*',
+  , io = Iserver(server,{
   handlePreflightRequest: (req, res) => {
         const headers = {
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
             "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
-            "Access-Control-Allow-Credentials": false
+            "Access-Control-Allow-Credentials": true
         };
         res.writeHead(200, headers);
         res.end();
     }
   });
 
-app.use(cors())
+//app.use(cors())
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT);
