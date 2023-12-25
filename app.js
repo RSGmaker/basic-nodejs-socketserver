@@ -4,7 +4,8 @@ var express = require('express')
   , cors = require('cors')
   , server = http.createServer(app)
   , Iserver = require('socket.io')
-  , io = Iserver(server,{
+  app.use(cors());
+  var io = Iserver(server,{
 	  cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -21,7 +22,7 @@ var express = require('express')
     }
   });
 
-app.use(cors())
+
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT);
