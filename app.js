@@ -7,8 +7,8 @@ var express = require('express')
   , Iserver = require('socket.io')
   
   
-  var io = Iserver(server,{});
-  /*
+  /*var io = Iserver(server,{});*/
+  
   var io = Iserver(server,{
 	  cors: {
     origin: (request, callback) => {
@@ -18,7 +18,7 @@ var express = require('express')
 },
     methods: ["GET", "POST"],
 	credentials: false
-  },
+  }/*,
   //, io = Iserver(server,{
   handlePreflightRequest: (req, res) => {
         const headers = {
@@ -28,8 +28,8 @@ var express = require('express')
         };
         res.writeHead(200, headers);
         res.end();
-    }
-  });*/
+    }*/
+  });
 
 
 
