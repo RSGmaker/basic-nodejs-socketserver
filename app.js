@@ -7,7 +7,11 @@ var express = require('express')
   app.use(cors());
   var io = Iserver(server,{
 	  cors: {
-    origin: "*",
+    origin: (request, callback) => {
+    const error = null;
+    const allowed_origin = req.headers.origin ?? '*'; // If there is no origin this value doesn't really matter
+    callback(error, allowed_origin);
+},
     methods: ["GET", "POST"],
 	credentials: false
   },
