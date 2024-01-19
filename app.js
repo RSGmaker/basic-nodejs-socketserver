@@ -1,10 +1,14 @@
 var express = require('express')
-  , app = express()
   , http = require('http')
   , cors = require('cors')
-  , server = http.createServer(app)
-  , Iserver = require('socket.io')
+  var app = express();
   app.use(cors());
+  var server = http.createServer(app)
+  , Iserver = require('socket.io')
+  
+  
+  var io = Iserver(server,{});
+  /*
   var io = Iserver(server,{
 	  cors: {
     origin: (request, callback) => {
@@ -25,7 +29,7 @@ var express = require('express')
         res.writeHead(200, headers);
         res.end();
     }
-  });
+  });*/
 
 
 
