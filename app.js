@@ -10,7 +10,12 @@ var express = require('express')
   /*var io = Iserver(server,{});*/
   
   var io = Iserver(server,{
-	  cors: {
+	  allowEIO3: true,
+    cors: {
+        origin: true,
+        credentials: true
+    }
+	  /*cors: {
     origin: (request, callback) => {
     const error = null;
     const allowed_origin = '*'; // If there is no origin this value doesn't really matter
@@ -18,7 +23,7 @@ var express = require('express')
 },
     methods: ["GET", "POST"],
 	credentials: false
-  }/*,
+  }*//*,
   //, io = Iserver(server,{
   handlePreflightRequest: (req, res) => {
         const headers = {
